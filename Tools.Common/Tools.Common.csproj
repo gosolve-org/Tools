@@ -4,7 +4,7 @@
     <Nullable>disable</Nullable>
     <ImplicitUsings>true</ImplicitUsings>
     <PackageId>GoSolve.Tools.Common</PackageId>
-    <Version>0.0.2</Version>
+    <Version>0.0.1</Version>
     <Company>goSolve</Company>
     <Authors>goSolve IT</Authors>
     <PackageTags>tools</PackageTags>
@@ -31,11 +31,18 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="..\.editorconfig">
-      <Link>.\.editorconfig</Link>
+      <Link>.editorconfig</Link>
       <PackagePath>.\</PackagePath>
       <PackageCopyToOutput>true</PackageCopyToOutput>
       <Pack>true</Pack>
     </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="build\**">
+      <Pack>true</Pack>
+      <PackageCopyToOutput>false</PackageCopyToOutput>
+      <PackagePath>build\</PackagePath>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="StyleCop.Analyzers" Version="1.1.118">

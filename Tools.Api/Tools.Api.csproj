@@ -1,0 +1,38 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <Nullable>disable</Nullable>
+    <ImplicitUsings>true</ImplicitUsings>
+    <PackageId>GoSolve.Tools.Api</PackageId>
+    <Version>0.0.1</Version>
+    <Company>goSolve</Company>
+    <Authors>goSolve IT</Authors>
+    <PackageTags>tools</PackageTags>
+    <Description>Package containing tools for goSolve's back-end API services.</Description>
+    <Copyright>Copyright © goSolve 2022</Copyright>
+    <RepositoryUrl>https://github.com/gosolve-org/Tools</RepositoryUrl>
+    <PackageLicenseExpression>AGPL-3.0-only</PackageLicenseExpression>
+    <RootNamespace>GoSolve.Tools.Api</RootNamespace>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <PackageReleaseNotes>
+        v0.0.1: Added error handling logic
+    </PackageReleaseNotes>
+  </PropertyGroup>
+  <ItemGroup>
+    <None Remove="ExtensionMethods\" />
+    <None Remove="Microsoft.Extensions.DependencyInjection.Abstractions" />
+    <None Remove="Hellang.Middleware.ProblemDetails" />
+    <None Remove="ProblemDetails\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="ExtensionMethods\" />
+    <Folder Include="ProblemDetails\" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="6.0.0" />
+    <PackageReference Include="Hellang.Middleware.ProblemDetails" Version="6.4.2" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Tools.Common\Tools.Common.csproj" />
+  </ItemGroup>
+</Project>

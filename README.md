@@ -8,7 +8,7 @@ The Tools.Api package includes the default configurations for the goSolve api's.
 
 To include these in an API, use the following in your Program.cs:
 ```csharp
-using GoSolve.Tools.ExtensionMethods.Api;
+using GoSolve.Tools.Api.ExtensionMethods;
 
 builder.Services.AddApiTools();
 

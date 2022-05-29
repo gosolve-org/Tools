@@ -32,8 +32,8 @@ jobs:
       - name: Test
         run: dotnet test --no-restore --verbosity normal
       - name: Pack
-        run: dotnet pack --configuration Release
-      - name: Publish GoSolve.Tools.Common
-        run: dotnet nuget push ./Tools.Common/bin/Release/*.nupkg --skip-duplicate --no-symbols true
-      - name: Publish GoSolve.Tools.Api
-        run: dotnet nuget push ./Tools.Api/bin/Release/*.nupkg --skip-duplicate --no-symbols true
+        run: dotnet pack --configuration Release -o out
+      - name: Publish packages
+        run: dotnet nuget push ./out/*.nupkg --skip-duplicate -n -k ${NUGET_AUTH_TOKEN} -s https://nuget.pkg.github.com/gosolve-org/index.json
+        env:
+          NUGET_AUTH_TOKEN: ${{secrets.PACKAGE_PUBLISH_TOKEN}}

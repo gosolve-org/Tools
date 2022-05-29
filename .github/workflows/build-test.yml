@@ -20,7 +20,7 @@ jobs:
           dotnet-version: ${{ matrix.dotnet-version }}
           source-url: https://nuget.pkg.github.com/gosolve-org/index.json
         env:
-          NUGET_AUTH_TOKEN: ${{secrets.PACKAGE_PUBLISH_TOKEN}}
+          NUGET_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
       - name: Install dependencies
         run: dotnet restore
       - name: Build

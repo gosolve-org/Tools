@@ -3,7 +3,7 @@ using Hellang.Middleware.ProblemDetails;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace GoSolve.Tools.ExtensionMethods.Api;
+namespace GoSolve.Tools.Api.ExtensionMethods;
 
 /// <summary>
 /// Api extension methods.

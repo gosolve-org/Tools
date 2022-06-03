@@ -4,9 +4,8 @@
     <TargetFramework>net6.0</TargetFramework>
     <Nullable>disable</Nullable>
     <ImplicitUsings>true</ImplicitUsings>
-
     <IsPackable>false</IsPackable>
-    <RootNamespace>GoSolve.Tools.Test</RootNamespace>
+    <RootNamespace>GoSolve.Tools.Common.UnitTests</RootNamespace>
   </PropertyGroup>
 
   <ItemGroup>
@@ -24,16 +23,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Remove="Tools.Api\" />
-    <None Remove="Tools.Api\ProblemDetails\" />
     <None Remove="Moq" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Tools.Api\" />
-    <Folder Include="Tools.Api\ProblemDetails\" />
-  </ItemGroup>
-  <ItemGroup>
     <ProjectReference Include="..\Tools.Common\Tools.Common.csproj" />
-    <ProjectReference Include="..\Tools.Api\Tools.Api.csproj" />
   </ItemGroup>
 </Project>

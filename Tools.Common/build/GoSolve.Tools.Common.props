@@ -1,9 +1,9 @@
 ﻿<Project>
-    <Target Name="CopyEditorConfig" BeforeTargets="BeforeResolveReferences">
-        <ItemGroup>
-            <EditorConfigFilesToCopy Include="$(MSBuildThisFileDirectory)..\.editorconfig" />
-        </ItemGroup>
-        <Message Importance="high" Text="Copying .editorconfig file from '$(MSBuildThisFileDirectory)..\.editorconfig' to '$(MSBuildProjectDirectory)\..'"/>
-        <Copy SourceFiles="@(EditorConfigFilesToCopy)" DestinationFolder="$(MSBuildProjectDirectory)\.." SkipUnchangedFiles="true" UseHardlinksIfPossible="false" />
-    </Target>
+  <Target Name="CopyEditorConfig" BeforeTargets="BeforeResolveReferences">
+    <ItemGroup>
+      <EditorConfigFilesToCopy Include="$(MSBuildThisFileDirectory)..\.editorconfig" />
+    </ItemGroup>
+    <Message Importance="high" Text="Copying .editorconfig file from '$(MSBuildThisFileDirectory)..\.editorconfig' to '$(MSBuildProjectDirectory)\..'"/>
+    <Copy SourceFiles="@(EditorConfigFilesToCopy)" DestinationFolder="$(MSBuildProjectDirectory)\.." SkipUnchangedFiles="true" UseHardlinksIfPossible="false" />
+  </Target>
 </Project>

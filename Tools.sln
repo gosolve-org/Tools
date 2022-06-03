@@ -7,7 +7,13 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tools.Api", "Tools.Api\Tool
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tools.Common", "Tools.Common\Tools.Common.csproj", "{3C2D32D7-A5EA-41CB-A527-B6CCEAD2FB09}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tools.Test", "Tools.Test\Tools.Test.csproj", "{44FEEF7D-33FF-481B-B15B-9E2CB757D799}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tools.Api.UnitTests", "Tools.Api.UnitTests\Tools.Api.UnitTests.csproj", "{44FEEF7D-33FF-481B-B15B-9E2CB757D799}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{E305A6DC-5BF7-46CF-AA91-40DF638582E1}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{1F994297-DF82-4FB4-A323-108E2C548125}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tools.Common.UnitTests", "Tools.Common.UnitTests\Tools.Common.UnitTests.csproj", "{95A31047-473B-45BF-A3E6-582BE567F5CB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,11 +33,21 @@ Global
 		{44FEEF7D-33FF-481B-B15B-9E2CB757D799}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{44FEEF7D-33FF-481B-B15B-9E2CB757D799}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{44FEEF7D-33FF-481B-B15B-9E2CB757D799}.Release|Any CPU.Build.0 = Release|Any CPU
+		{95A31047-473B-45BF-A3E6-582BE567F5CB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{95A31047-473B-45BF-A3E6-582BE567F5CB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{95A31047-473B-45BF-A3E6-582BE567F5CB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{95A31047-473B-45BF-A3E6-582BE567F5CB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {54F65C4E-0737-4EDC-84DD-4F451031645D}
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{896DA085-7A03-4125-8497-7178C8E10AC7} = {E305A6DC-5BF7-46CF-AA91-40DF638582E1}
+		{3C2D32D7-A5EA-41CB-A527-B6CCEAD2FB09} = {E305A6DC-5BF7-46CF-AA91-40DF638582E1}
+		{44FEEF7D-33FF-481B-B15B-9E2CB757D799} = {1F994297-DF82-4FB4-A323-108E2C548125}
+		{95A31047-473B-45BF-A3E6-582BE567F5CB} = {1F994297-DF82-4FB4-A323-108E2C548125}
 	EndGlobalSection
 EndGlobal

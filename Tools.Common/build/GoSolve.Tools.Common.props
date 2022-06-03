@@ -1,5 +1,5 @@
 ﻿<Project>
-  <Target Name="CopyEditorConfig" BeforeTargets="BeforeBuild">
+  <Target Name="CopyEditorConfig" BeforeTargets="BeforeResolveReferences">
     <ItemGroup>
       <EditorConfigFilesToCopy Include="$(MSBuildThisFileDirectory)..\.editorconfig" />
     </ItemGroup>

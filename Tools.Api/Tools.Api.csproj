@@ -4,7 +4,7 @@
     <Nullable>disable</Nullable>
     <ImplicitUsings>true</ImplicitUsings>
     <PackageId>GoSolve.Tools.Api</PackageId>
-    <Version>0.0.2</Version>
+    <Version>0.0.3</Version>
     <Company>goSolve</Company>
     <Authors>goSolve IT</Authors>
     <PackageTags>tools</PackageTags>
@@ -17,6 +17,7 @@
     <PackageReleaseNotes>
         v0.0.1: Added error handling logic
         v0.0.2: Added HttpClients extension methods and default api pipeline tools and upgrade Tools.Common to 0.0.2
+        v0.0.3: Update Tools.Common to 0.0.3
     </PackageReleaseNotes>
   </PropertyGroup>
   <ItemGroup>

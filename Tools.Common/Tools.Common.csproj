@@ -39,11 +39,13 @@
     <None Remove="Serilog.Extensions.Logging" />
     <None Remove="HttpClients\" />
     <None Remove="Microsoft.AspNetCore.Mvc" />
+    <None Remove="Helpers\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Exceptions\" />
     <Folder Include="Enumerations\" />
     <Folder Include="HttpClients\" />
+    <Folder Include="Helpers\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="..\.editorconfig">

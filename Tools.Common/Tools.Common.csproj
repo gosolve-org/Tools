@@ -4,7 +4,7 @@
     <Nullable>disable</Nullable>
     <ImplicitUsings>true</ImplicitUsings>
     <PackageId>GoSolve.Tools.Common</PackageId>
-    <Version>0.0.2</Version>
+    <Version>0.0.3</Version>
     <Company>goSolve</Company>
     <Authors>goSolve IT</Authors>
     <PackageTags>tools</PackageTags>
@@ -19,6 +19,7 @@
     <PackageReleaseNotes>
       v0.0.1: Added custom Exception types and analyzer packages
       v0.0.2: Added HttpClient and http policies logic
+      v0.0.3: Add AsyncHelper class
     </PackageReleaseNotes>
   </PropertyGroup>
   <ItemGroup>
@@ -39,11 +40,13 @@
     <None Remove="Serilog.Extensions.Logging" />
     <None Remove="HttpClients\" />
     <None Remove="Microsoft.AspNetCore.Mvc" />
+    <None Remove="Helpers\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Exceptions\" />
     <Folder Include="Enumerations\" />
     <Folder Include="HttpClients\" />
+    <Folder Include="Helpers\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="..\.editorconfig">

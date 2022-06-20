@@ -33,7 +33,7 @@ And add the following to your appsettings.json and appsettings.Development.json:
     "HttpClients": [
         {
             "Name": "book",
-            "BaseAddressUri": "<base address of the api>" // Example: "https://localhost:5001/" (trailing slash is required!)
+            "BaseAddressUri": "<base address of the api>", // Example: "https://localhost:5001/" (trailing slash is required!)
             "Accept": "application/json" // (Optional, default value: "application/json")
         }
     ]

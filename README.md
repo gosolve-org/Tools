@@ -9,16 +9,28 @@ The Tools.Api package includes the default configurations for the goSolve api's.
 - Api versioning
 - Swagger documentation
 - Endpoint routing & controller mapping
+- Database setup & migration
 
 To include these in an API, use the following in your Program.cs:
 ```csharp
 using GoSolve.Tools.Api.ExtensionMethods;
 
 builder.Services.AddApiTools();
+builder.Services.AddDatabaseTools<MyDbContext>(builder.Configuration); // Optional: Adds database context
 
 // ...
 
 app.UseApiTools();
+app.UseDatabaseTools<MyDbContext>(); // Optional: Migrates database on startup
+```
+
+To use the database tools, the connection string to the postgresql database needs to be added:
+```json
+{
+    "ConnectionStrings": {
+        "DbConnection": "[your database connection string]"
+    }
+}
 ```
 
 ### Add an internal http client

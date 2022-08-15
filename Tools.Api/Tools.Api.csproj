@@ -4,7 +4,7 @@
     <Nullable>disable</Nullable>
     <ImplicitUsings>true</ImplicitUsings>
     <PackageId>GoSolve.Tools.Api</PackageId>
-    <Version>0.0.4</Version>
+    <Version>0.0.5</Version>
     <Company>goSolve</Company>
     <Authors>goSolve IT</Authors>
     <PackageTags>tools</PackageTags>
@@ -19,6 +19,7 @@
         v0.0.2: Added HttpClients extension methods and default api pipeline tools and upgrade Tools.Common to 0.0.2
         v0.0.3: Update Tools.Common to 0.0.3
         v0.0.4: Update Tools.Common, add NotFoundException status code mapping, add database extension methods, add GenericRepository class, UnitOfWork class and BaseDbContext class
+        v0.0.5: Add PatchExtensionMethods
     </PackageReleaseNotes>
   </PropertyGroup>
   <ItemGroup>
@@ -38,6 +39,8 @@
     <None Remove="Database\" />
     <None Remove="Database\Models\" />
     <None Remove="Database\Repositories\" />
+    <None Remove="AutoMapper.Extensions.Microsoft.DependencyInjection" />
+    <None Remove="Microsoft.AspNetCore.JsonPatch" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="ExtensionMethods\" />
@@ -56,6 +59,8 @@
     <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
     <PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="6.0.5" />
     <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="6.0.6" />
+    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="11.0.0" />
+    <PackageReference Include="Microsoft.AspNetCore.JsonPatch" Version="6.0.8" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Tools.Common\Tools.Common.csproj">

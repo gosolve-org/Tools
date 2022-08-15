@@ -17,6 +17,7 @@ public class ProblemDetailsConfigurationFactoryTests
         var mockSequence = new MockSequence();
 
         _problemDetailsOptionsMock.InSequence(mockSequence).Setup(x => x.Map(It.IsAny<Func<ArgumentException, Microsoft.AspNetCore.Mvc.ProblemDetails>>()));
+        _problemDetailsOptionsMock.InSequence(mockSequence).Setup(x => x.Map(It.IsAny<Func<NotFoundException, Microsoft.AspNetCore.Mvc.ProblemDetails>>()));
         _problemDetailsOptionsMock.InSequence(mockSequence).Setup(x => x.Map(It.IsAny<Func<InvalidOperationException, Microsoft.AspNetCore.Mvc.ProblemDetails>>()));
         _problemDetailsOptionsMock.InSequence(mockSequence).Setup(x => x.Map(It.IsAny<Func<NotImplementedException, Microsoft.AspNetCore.Mvc.ProblemDetails>>()));
         _problemDetailsOptionsMock.InSequence(mockSequence).Setup(x => x.Map(It.IsAny<Func<UnauthenticatedException, Microsoft.AspNetCore.Mvc.ProblemDetails>>()));
@@ -30,6 +31,14 @@ public class ProblemDetailsConfigurationFactoryTests
         ProblemDetailsConfigurationFactory.CreateDefaultProblemDetailsOptionsConfiguration(_problemDetailsOptionsMock.Object);
 
         _problemDetailsOptionsMock.Verify(VerifyExceptionMapping<ArgumentException>(StatusCodes.Status400BadRequest));
+    }
+
+    [Fact]
+    public void CreateDefaultProblemDetailsOptionsConfiguration_MapsNotFoundExceptionToNotFound()
+    {
+        ProblemDetailsConfigurationFactory.CreateDefaultProblemDetailsOptionsConfiguration(_problemDetailsOptionsMock.Object);
+
+        _problemDetailsOptionsMock.Verify(VerifyExceptionMapping<NotFoundException>(StatusCodes.Status404NotFound));
     }
 
     [Fact]

@@ -4,7 +4,7 @@
     <Nullable>disable</Nullable>
     <ImplicitUsings>true</ImplicitUsings>
     <PackageId>GoSolve.Tools.Api</PackageId>
-    <Version>0.0.3</Version>
+    <Version>0.0.4</Version>
     <Company>goSolve</Company>
     <Authors>goSolve IT</Authors>
     <PackageTags>tools</PackageTags>
@@ -18,6 +18,7 @@
         v0.0.1: Added error handling logic
         v0.0.2: Added HttpClients extension methods and default api pipeline tools and upgrade Tools.Common to 0.0.2
         v0.0.3: Update Tools.Common to 0.0.3
+        v0.0.4: Update Tools.Common, add NotFoundException status code mapping, add database extension methods, add GenericRepository class, UnitOfWork class and BaseDbContext class
     </PackageReleaseNotes>
   </PropertyGroup>
   <ItemGroup>
@@ -31,11 +32,20 @@
     <None Remove="Json\" />
     <None Remove="Newtonsoft.Json" />
     <None Remove="Microsoft.AspNetCore.Mvc.NewtonsoftJson" />
+    <None Remove="Microsoft.EntityFrameworkCore.Design" />
+    <None Remove="Microsoft.EntityFrameworkCore.Tools" />
+    <None Remove="Npgsql.EntityFrameworkCore.PostgreSQL" />
+    <None Remove="Database\" />
+    <None Remove="Database\Models\" />
+    <None Remove="Database\Repositories\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="ExtensionMethods\" />
     <Folder Include="ProblemDetails\" />
     <Folder Include="Json\" />
+    <Folder Include="Database\" />
+    <Folder Include="Database\Models\" />
+    <Folder Include="Database\Repositories\" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="6.0.0" />
@@ -45,6 +55,7 @@
     <PackageReference Include="Microsoft.AspNetCore.Mvc.Versioning.ApiExplorer" Version="5.0.0" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
     <PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="6.0.5" />
+    <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="6.0.6" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Tools.Common\Tools.Common.csproj">

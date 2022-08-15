@@ -1,10 +1,13 @@
-﻿using GoSolve.Tools.Api.Json;
+﻿using GoSolve.Tools.Api.Database.Models;
+using GoSolve.Tools.Api.Json;
 using GoSolve.Tools.Api.ProblemDetails;
 using Hellang.Middleware.ProblemDetails;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Mvc.Versioning;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.Extensions.Logging;
 
 namespace GoSolve.Tools.Api.ExtensionMethods;
 

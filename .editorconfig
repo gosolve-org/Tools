@@ -47,6 +47,9 @@ dotnet_diagnostic.SA1208.severity = none
 # SA1210: Using directives should be ordered alphabetically by namespace
 dotnet_diagnostic.SA1210.severity = none
 
+# SA1306: Field names should begin with lower-case letter
+dotnet_diagnostic.SA1306.severity = none
+
 # SA1309: Field names should not begin with underscore
 dotnet_diagnostic.SA1309.severity = none
 
@@ -61,6 +64,9 @@ dotnet_diagnostic.SA1413.severity = none
 
 # SA1503: Braces should not be omitted
 dotnet_diagnostic.SA1503.severity = none
+
+# SA1515: Single-line comment should be preceded by blank line
+dotnet_diagnostic.SA1515.severity = none
 
 # SA1516: Elements should be separated by blank line
 dotnet_diagnostic.SA1516.severity = none

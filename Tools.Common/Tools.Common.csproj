@@ -4,7 +4,7 @@
     <Nullable>disable</Nullable>
     <ImplicitUsings>true</ImplicitUsings>
     <PackageId>GoSolve.Tools.Common</PackageId>
-    <Version>0.0.3</Version>
+    <Version>0.0.4</Version>
     <Company>goSolve</Company>
     <Authors>goSolve IT</Authors>
     <PackageTags>tools</PackageTags>
@@ -20,6 +20,7 @@
       v0.0.1: Added custom Exception types and analyzer packages
       v0.0.2: Added HttpClient and http policies logic
       v0.0.3: Add AsyncHelper class
+      v0.0.4: Add NotFoundException
     </PackageReleaseNotes>
   </PropertyGroup>
   <ItemGroup>

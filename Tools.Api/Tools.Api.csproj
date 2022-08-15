@@ -18,7 +18,7 @@
         v0.0.1: Added error handling logic
         v0.0.2: Added HttpClients extension methods and default api pipeline tools and upgrade Tools.Common to 0.0.2
         v0.0.3: Update Tools.Common to 0.0.3
-        v0.0.4: Update Tools.Common, add database extension methods, add GenericRepository class, UnitOfWork class and BaseDbContext class
+        v0.0.4: Update Tools.Common, add NotFoundException status code mapping, add database extension methods, add GenericRepository class, UnitOfWork class and BaseDbContext class
     </PackageReleaseNotes>
   </PropertyGroup>
   <ItemGroup>

@@ -24,6 +24,8 @@ public static class ProblemDetailsConfigurationFactory
 
             options.Map<ArgumentException>(ex =>
                 AddDetailToProblemDetails(StatusCodeProblemDetails.Create(StatusCodes.Status400BadRequest), ex));
+            options.Map<NotFoundException>(ex =>
+                AddDetailToProblemDetails(StatusCodeProblemDetails.Create(StatusCodes.Status404NotFound), ex));
             options.Map<InvalidOperationException>(ex =>
                 AddDetailToProblemDetails(StatusCodeProblemDetails.Create(StatusCodes.Status400BadRequest), ex));
             options.Map<NotImplementedException>(ex =>

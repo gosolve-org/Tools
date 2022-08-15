@@ -1,4 +1,5 @@
 ﻿using System.Linq.Expressions;
+using GoSolve.Tools.Api.Database.Models;
 
 namespace GoSolve.Tools.Api.Database.Repositories;
 
@@ -31,37 +32,29 @@ public interface IGenericRepository<TEntity, TId>
 
     /// <summary>
     /// Begins tracking the given entity, and any other reachable entities that are not already being tracked.
-    /// NOTE: This does not save the entity to the database, <see cref="SaveChangesAsync" /> still needs to be called.
+    /// NOTE: This does not save the entity to the database, a <see cref="IUnitOfWork" /> still needs to be completed.
     /// </summary>
     /// <param name="entity"></param>
-    /// <returns></returns>
-    TEntity Add(TEntity entity);
+    void Add(TEntity entity);
 
     /// <summary>
-    /// Begins tracking the update of the given entity, and any other reachable entities that are not already being tracked.
-    /// NOTE: This does not save the update of this entity to the database, <see cref="SaveChangesAsync" /> still needs to be called.
+    /// Begins tracking the given entities, and any other reachable entities that are not already being tracked.
+    /// NOTE: This does not save the entities to the database, a <see cref="IUnitOfWork" /> still needs to be completed.
     /// </summary>
-    /// <param name="entity"></param>
-    /// <returns></returns>
-    TEntity Update(TEntity entity);
+    /// <param name="entities"></param>
+    void AddRange(IEnumerable<TEntity> entities);
 
     /// <summary>
     /// Begins tracking the deletion of the given entity, and any other reachable entities that are not already being tracked.
-    /// NOTE: This does not save the deletion of this entity to the database, <see cref="SaveChangesAsync" /> still needs to be called.
+    /// NOTE: This does not save the deletion of this entity to the database, a <see cref="IUnitOfWork" /> still needs to be completed.
     /// </summary>
     /// <param name="entity"></param>
     void Remove(TEntity entity);
 
     /// <summary>
     /// Begins tracking the deletion of the given entities, and any other reachable entities that are not already being tracked.
-    /// NOTE: This does not save the deletion of these entities to the database, <see cref="SaveChangesAsync" /> still needs to be called.
+    /// NOTE: This does not save the deletion of these entities to the database, a <see cref="IUnitOfWork" /> still needs to be completed.
     /// </summary>
     /// <param name="entities"></param>
     void RemoveRange(IEnumerable<TEntity> entities);
-
-    /// <summary>
-    /// Saves all changes made in this repository to the database.
-    /// </summary>
-    /// <returns></returns>
-    Task SaveChangesAsync();
 }

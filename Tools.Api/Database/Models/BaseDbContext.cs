@@ -42,19 +42,25 @@ public abstract class BaseDbContext<T> : DbContext
 
     private void AddTimestamps()
     {
-        var entities = ChangeTracker.Entries()
-            .Where(x => x.Entity is TimestampedEntity && (x.State == EntityState.Added || x.State == EntityState.Modified));
+        var entities = ChangeTracker
+            .Entries()
+            .Where(x => x.Entity is TimestampedEntity);
 
+        var now = DateTime.UtcNow;
         foreach (var entity in entities)
         {
-            var now = DateTime.UtcNow;
-
-            if (entity.State == EntityState.Added)
+            var timestampedEntity = (TimestampedEntity)entity.Entity;
+            switch (entity.State)
             {
-                ((TimestampedEntity)entity.Entity).CreatedAt = now;
+                case EntityState.Added:
+                    timestampedEntity.CreatedAt = now;
+                    timestampedEntity.UpdatedAt = now;
+                    break;
+                case EntityState.Modified:
+                    timestampedEntity.UpdatedAt = now;
+                    entity.Property(nameof(timestampedEntity.CreatedAt)).IsModified = false;
+                    break;
             }
-
-            ((TimestampedEntity)entity.Entity).UpdatedAt = now;
         }
     }
 }

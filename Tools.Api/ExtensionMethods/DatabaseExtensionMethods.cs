@@ -20,10 +20,12 @@ public static class DatabaseExtensionMethods
     public static void AddDatabaseTools<TDbContext>(this IServiceCollection services, IConfiguration configuration)
         where TDbContext : BaseDbContext<TDbContext>
     {
-        services.AddEntityFrameworkNpgsql().AddDbContext<TDbContext>(opt =>
+        services.AddDbContext<TDbContext>(opt =>
         {
             opt.UseNpgsql(configuration.GetConnectionString("DbConnection"));
         });
+
+        services.AddTransient<IUnitOfWork, UnitOfWork<TDbContext>>();
     }
 
     /// <summary>

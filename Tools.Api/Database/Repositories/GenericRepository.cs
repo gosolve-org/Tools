@@ -59,29 +59,27 @@ public abstract class GenericRepository<TEntity, TId, TDbContext> : IGenericRepo
 
     /// <summary>
     /// Begins tracking the given entity, and any other reachable entities that are not already being tracked.
-    /// NOTE: This does not save the entity to the database, <see cref="SaveChangesAsync" /> still needs to be called.
+    /// NOTE: This does not save the entity to the database, a <see cref="IUnitOfWork" /> still needs to be completed.
     /// </summary>
     /// <param name="entity"></param>
-    /// <returns></returns>
-    public TEntity Add(TEntity entity)
+    public void Add(TEntity entity)
     {
-        return Context.Set<TEntity>().Add(entity).Entity;
+        Context.Set<TEntity>().Add(entity);
     }
 
     /// <summary>
-    /// Begins tracking the update of the given entity, and any other reachable entities that are not already being tracked.
-    /// NOTE: This does not save the update of this entity to the database, <see cref="SaveChangesAsync" /> still needs to be called.
+    /// Begins tracking the given entities, and any other reachable entities that are not already being tracked.
+    /// NOTE: This does not save the entity to the database, a <see cref="IUnitOfWork" /> still needs to be completed.
     /// </summary>
-    /// <param name="entity"></param>
-    /// <returns></returns>
-    public TEntity Update(TEntity entity)
+    /// <param name="entities"></param>
+    public void AddRange(IEnumerable<TEntity> entities)
     {
-        return Context.Set<TEntity>().Update(entity).Entity;
+        Context.Set<TEntity>().AddRange(entities);
     }
 
     /// <summary>
     /// Begins tracking the deletion of the given entity, and any other reachable entities that are not already being tracked.
-    /// NOTE: This does not save the deletion of this entity to the database, <see cref="SaveChangesAsync" /> still needs to be called.
+    /// NOTE: This does not save the deletion of this entity to the database, a <see cref="IUnitOfWork" /> still needs to be completed.
     /// </summary>
     /// <param name="entity"></param>
     public void Remove(TEntity entity)
@@ -91,20 +89,11 @@ public abstract class GenericRepository<TEntity, TId, TDbContext> : IGenericRepo
 
     /// <summary>
     /// Begins tracking the deletion of the given entities, and any other reachable entities that are not already being tracked.
-    /// NOTE: This does not save the deletion of these entities to the database, <see cref="SaveChangesAsync" /> still needs to be called.
+    /// NOTE: This does not save the deletion of these entities to the database, a <see cref="IUnitOfWork" /> still needs to be completed.
     /// </summary>
     /// <param name="entities"></param>
     public void RemoveRange(IEnumerable<TEntity> entities)
     {
         Context.Set<TEntity>().RemoveRange(entities);
-    }
-
-    /// <summary>
-    /// Saves all changes made in this repository to the database.
-    /// </summary>
-    /// <returns></returns>
-    public async Task SaveChangesAsync()
-    {
-        await Context.SaveChangesAsync();
     }
 }

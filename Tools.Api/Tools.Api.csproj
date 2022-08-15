@@ -4,7 +4,7 @@
     <Nullable>disable</Nullable>
     <ImplicitUsings>true</ImplicitUsings>
     <PackageId>GoSolve.Tools.Api</PackageId>
-    <Version>0.0.5</Version>
+    <Version>0.0.4</Version>
     <Company>goSolve</Company>
     <Authors>goSolve IT</Authors>
     <PackageTags>tools</PackageTags>
@@ -18,8 +18,7 @@
         v0.0.1: Added error handling logic
         v0.0.2: Added HttpClients extension methods and default api pipeline tools and upgrade Tools.Common to 0.0.2
         v0.0.3: Update Tools.Common to 0.0.3
-        v0.0.4: Add database extension methods
-        v0.0.5: Update Tools.Common, update GenericRepository class, add UnitOfWork class and update automatic timestamps logic
+        v0.0.4: Update Tools.Common, add database extension methods, add GenericRepository class, UnitOfWork class and BaseDbContext class
     </PackageReleaseNotes>
   </PropertyGroup>
   <ItemGroup>

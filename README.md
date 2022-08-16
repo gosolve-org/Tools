@@ -7,6 +7,7 @@ The Tools.Api package includes the default configurations for the goSolve api's.
 - Error handling & ProblemDetails
 - Json configuration
 - Api versioning
+- JsonPatch mapping & validation functionality
 - Swagger documentation
 - Endpoint routing & controller mapping
 - Database setup & migration

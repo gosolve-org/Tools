@@ -53,6 +53,13 @@ And add the following to your appsettings.json and appsettings.Development.json:
 }
 ```
 
+### Other appsetting properties
+```json
+{
+    "PathBase": "/my-api" // Prefix all your endpoints with this base path. Should only be used for development appsettings in combination with reverse proxy prefixes.
+}
+```
+
 ### Json
 For all json serialization & deserialization logic, we will use the package Newtonsoft.Json.  
 Reason: The native .NET System.Text.Json does not support customization with projects using .AddControllers() instead of .AddMvc().  

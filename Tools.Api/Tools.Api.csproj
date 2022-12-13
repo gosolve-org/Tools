@@ -4,7 +4,7 @@
     <Nullable>disable</Nullable>
     <ImplicitUsings>true</ImplicitUsings>
     <PackageId>GoSolve.Tools.Api</PackageId>
-    <Version>0.0.5</Version>
+    <Version>0.0.6</Version>
     <Company>goSolve</Company>
     <Authors>goSolve IT</Authors>
     <PackageTags>tools</PackageTags>
@@ -20,6 +20,7 @@
         v0.0.3: Update Tools.Common to 0.0.3
         v0.0.4: Update Tools.Common, add NotFoundException status code mapping, add database extension methods, add GenericRepository class, UnitOfWork class and BaseDbContext class
         v0.0.5: Add PatchExtensionMethods
+        v0.0.6: Add PathBase support
     </PackageReleaseNotes>
   </PropertyGroup>
   <ItemGroup>

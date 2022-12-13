@@ -47,6 +47,14 @@ public static class ApiExtensionMethods
     /// <param name="app"></param>
     public static void UseApiTools(this WebApplication app)
     {
+        var configuration = app.Configuration;
+
+        var pathBase = configuration.GetValue<string>("PathBase");
+        if (!string.IsNullOrWhiteSpace(pathBase))
+        {
+            app.UsePathBase(pathBase);
+        }
+
         app.UseRouting();
         app.UseProblemDetails();
         app.UseSwagger();

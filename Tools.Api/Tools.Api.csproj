@@ -4,7 +4,7 @@
     <Nullable>disable</Nullable>
     <ImplicitUsings>true</ImplicitUsings>
     <PackageId>GoSolve.Tools.Api</PackageId>
-    <Version>0.0.7</Version>
+    <Version>0.0.8</Version>
     <Company>goSolve</Company>
     <Authors>goSolve IT</Authors>
     <PackageTags>tools</PackageTags>
@@ -22,6 +22,7 @@
         v0.0.5: Add PatchExtensionMethods
         v0.0.6: Add PathBase support
         v0.0.7: Move database tools
+        v0.0.8: Rename extension method UseDatabaseTools to MigrateDatabase
     </PackageReleaseNotes>
   </PropertyGroup>
   <ItemGroup>

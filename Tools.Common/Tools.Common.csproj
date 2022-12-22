@@ -4,7 +4,7 @@
     <Nullable>disable</Nullable>
     <ImplicitUsings>true</ImplicitUsings>
     <PackageId>GoSolve.Tools.Common</PackageId>
-    <Version>0.0.4</Version>
+    <Version>0.0.5</Version>
     <Company>goSolve</Company>
     <Authors>goSolve IT</Authors>
     <PackageTags>tools</PackageTags>
@@ -21,6 +21,7 @@
       v0.0.2: Added HttpClient and http policies logic
       v0.0.3: Add AsyncHelper class
       v0.0.4: Add NotFoundException
+      v0.0.5: Add database tools
     </PackageReleaseNotes>
   </PropertyGroup>
   <ItemGroup>
@@ -32,6 +33,9 @@
     <None Remove="Microsoft.Extensions.Configuration" />
     <None Remove="Microsoft.Extensions.Options" />
     <None Remove="Microsoft.Extensions.Hosting" />
+    <None Remove="Microsoft.EntityFrameworkCore.Design" />
+    <None Remove="Microsoft.EntityFrameworkCore.Tools" />
+    <None Remove="Npgsql.EntityFrameworkCore.PostgreSQL" />
     <None Remove="Polly" />
     <None Remove="Microsoft.Extensions.Http" />
     <None Remove="Enumerations\" />
@@ -42,12 +46,20 @@
     <None Remove="HttpClients\" />
     <None Remove="Microsoft.AspNetCore.Mvc" />
     <None Remove="Helpers\" />
+    <None Remove="Database\" />
+    <None Remove="Database\Repositories\Interfaces\" />
+    <None Remove="Database\Models\Interfaces\" />
+    <None Remove="ExtensionMethods\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Exceptions\" />
     <Folder Include="Enumerations\" />
     <Folder Include="HttpClients\" />
     <Folder Include="Helpers\" />
+    <Folder Include="Database\" />
+    <Folder Include="Database\Repositories\Interfaces\" />
+    <Folder Include="Database\Models\Interfaces\" />
+    <Folder Include="ExtensionMethods\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="..\.editorconfig">
@@ -74,7 +86,7 @@
     <PackageReference Include="FluentAssertions.Analyzers" Version="0.17.2">
       <IncludeAssets>all</IncludeAssets>
     </PackageReference>
-    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="6.0.0" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="6.0.1" />
     <PackageReference Include="Microsoft.Extensions.Configuration" Version="6.0.1" />
     <PackageReference Include="Microsoft.Extensions.Options" Version="6.0.0" />
     <PackageReference Include="Microsoft.Extensions.Hosting" Version="6.0.1" />
@@ -85,5 +97,6 @@
     <PackageReference Include="Serilog.Sinks.Console" Version="4.0.1" />
     <PackageReference Include="Serilog.Extensions.Logging" Version="3.1.0" />
     <PackageReference Include="Microsoft.AspNetCore.Mvc" Version="2.2.0" />
+    <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="6.0.8" />
   </ItemGroup>
 </Project>

@@ -1,4 +1,5 @@
-﻿using GoSolve.Tools.Common.Exceptions;
+﻿using GoSolve.Tools.Api.ProblemDetails.Interfaces;
+using GoSolve.Tools.Common.Exceptions;
 using Hellang.Middleware.ProblemDetails;
 using Microsoft.AspNetCore.Http;
 

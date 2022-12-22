@@ -4,7 +4,7 @@
     <Nullable>disable</Nullable>
     <ImplicitUsings>true</ImplicitUsings>
     <PackageId>GoSolve.Tools.Api</PackageId>
-    <Version>0.0.6</Version>
+    <Version>0.0.7</Version>
     <Company>goSolve</Company>
     <Authors>goSolve IT</Authors>
     <PackageTags>tools</PackageTags>
@@ -21,6 +21,7 @@
         v0.0.4: Update Tools.Common, add NotFoundException status code mapping, add database extension methods, add GenericRepository class, UnitOfWork class and BaseDbContext class
         v0.0.5: Add PatchExtensionMethods
         v0.0.6: Add PathBase support
+        v0.0.7: Move database tools
     </PackageReleaseNotes>
   </PropertyGroup>
   <ItemGroup>
@@ -34,22 +35,15 @@
     <None Remove="Json\" />
     <None Remove="Newtonsoft.Json" />
     <None Remove="Microsoft.AspNetCore.Mvc.NewtonsoftJson" />
-    <None Remove="Microsoft.EntityFrameworkCore.Design" />
-    <None Remove="Microsoft.EntityFrameworkCore.Tools" />
-    <None Remove="Npgsql.EntityFrameworkCore.PostgreSQL" />
-    <None Remove="Database\" />
-    <None Remove="Database\Models\" />
-    <None Remove="Database\Repositories\" />
     <None Remove="AutoMapper.Extensions.Microsoft.DependencyInjection" />
     <None Remove="Microsoft.AspNetCore.JsonPatch" />
+    <None Remove="ProblemDetails\Interfaces\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="ExtensionMethods\" />
     <Folder Include="ProblemDetails\" />
     <Folder Include="Json\" />
-    <Folder Include="Database\" />
-    <Folder Include="Database\Models\" />
-    <Folder Include="Database\Repositories\" />
+    <Folder Include="ProblemDetails\Interfaces\" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="6.0.0" />
@@ -59,7 +53,6 @@
     <PackageReference Include="Microsoft.AspNetCore.Mvc.Versioning.ApiExplorer" Version="5.0.0" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
     <PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="6.0.5" />
-    <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="6.0.6" />
     <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="11.0.0" />
     <PackageReference Include="Microsoft.AspNetCore.JsonPatch" Version="6.0.8" />
   </ItemGroup>

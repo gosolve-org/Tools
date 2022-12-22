@@ -4,6 +4,7 @@ using GoSolve.Tools.Api.ProblemDetails;
 using Microsoft.AspNetCore.Http;
 using System.Linq.Expressions;
 using GoSolve.Tools.Common.Exceptions;
+using GoSolve.Tools.Api.ProblemDetails.Interfaces;
 
 namespace GoSolve.Tools.Api.UnitTests.ProblemDetails;
 

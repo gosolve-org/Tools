@@ -1,4 +1,6 @@
-﻿namespace GoSolve.Tools.Api.Database.Models;
+﻿using GoSolve.Tools.Common.Database.Models.Interfaces;
+
+namespace GoSolve.Tools.Common.Database.Models;
 
 /// <summary>
 /// Class used to group one or more operations into a single transaction or "unit of work".

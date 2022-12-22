@@ -1,8 +1,10 @@
-﻿using GoSolve.Tools.Api.Database.Models;
+﻿using GoSolve.Tools.Api.Database.Repositories.Interfaces;
+using GoSolve.Tools.Common.Database.Models;
+using GoSolve.Tools.Common.Database.Models.Interfaces;
 using Microsoft.EntityFrameworkCore;
 using System.Linq.Expressions;
 
-namespace GoSolve.Tools.Api.Database.Repositories;
+namespace GoSolve.Tools.Common.Database.Repositories;
 
 /// <summary>
 /// Abstract class including the default functionality of a database repository.

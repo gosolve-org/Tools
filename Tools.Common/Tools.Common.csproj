@@ -4,7 +4,7 @@
     <Nullable>disable</Nullable>
     <ImplicitUsings>true</ImplicitUsings>
     <PackageId>GoSolve.Tools.Common</PackageId>
-    <Version>0.0.5</Version>
+    <Version>0.0.6</Version>
     <Company>goSolve</Company>
     <Authors>goSolve IT</Authors>
     <PackageTags>tools</PackageTags>
@@ -22,6 +22,7 @@
       v0.0.3: Add AsyncHelper class
       v0.0.4: Add NotFoundException
       v0.0.5: Add database tools
+      v0.0.6: Add Serilog functionality
     </PackageReleaseNotes>
   </PropertyGroup>
   <ItemGroup>
@@ -50,6 +51,9 @@
     <None Remove="Database\Repositories\Interfaces\" />
     <None Remove="Database\Models\Interfaces\" />
     <None Remove="ExtensionMethods\" />
+    <None Remove="Logging\" />
+    <None Remove="Serilog.Extensions.Hosting" />
+    <None Remove="Serilog.Settings.Configuration" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Exceptions\" />
@@ -60,6 +64,7 @@
     <Folder Include="Database\Repositories\Interfaces\" />
     <Folder Include="Database\Models\Interfaces\" />
     <Folder Include="ExtensionMethods\" />
+    <Folder Include="Logging\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="..\.editorconfig">
@@ -98,5 +103,7 @@
     <PackageReference Include="Serilog.Extensions.Logging" Version="3.1.0" />
     <PackageReference Include="Microsoft.AspNetCore.Mvc" Version="2.2.0" />
     <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="6.0.8" />
+    <PackageReference Include="Serilog.Extensions.Hosting" Version="5.0.1" />
+    <PackageReference Include="Serilog.Settings.Configuration" Version="3.4.0" />
   </ItemGroup>
 </Project>

@@ -3,30 +3,35 @@ This repository includes the tools packages used for goSolve's back-end services
 
 ## Api tools
 The Tools.Api package includes the default configurations for the goSolve api's. This includes:
-- Analyzers
 - Error handling & ProblemDetails
 - Json configuration
 - Api versioning
 - JsonPatch mapping & validation functionality
 - Swagger documentation
 - Endpoint routing & controller mapping
-- Database setup & migration
+- Database migration
+
+The Tools.Common package includes the default configuration for all generic goSolve services. This includes:
+- Serilog logging
+- Database setup
+- Analyzers
 
 To include these in an API, use the following in your Program.cs:
 ```csharp
 using GoSolve.Tools.Api.ExtensionMethods;
 
-builder.Services.AddApiTools();
+builder.Services.AddCommonTools(); // Don't use in combination with AddApiTools()
+builder.Services.AddApiTools(); // Also adds AddCommonTools()
 builder.Services.AddDatabaseTools<MyDbContext>(builder.Configuration); // Optional: Adds database context
 
 // ...
 
 app.UseApiTools();
-app.UseDatabaseTools<MyDbContext>(); // Optional: Migrates database on startup
+app.MigrateDatabase<MyDbContext>(); // Optional: Migrates database on startup
 ```
 
 To use the database tools, the connection string to the postgresql database needs to be added:
-```json
+```javascript
 {
     "ConnectionStrings": {
         "DbConnection": "[your database connection string]"
@@ -41,7 +46,7 @@ To register a HttpClient in your Program.cs for dependency injection, use the fo
 builder.Services.AddInternalHttpClient<IBookHttpClient, BookHttpClient>(builder.Configuration, "book");
 ```
 And add the following to your appsettings.json and appsettings.Development.json:
-```json
+```javascript
 {
     "HttpClients": [
         {
@@ -54,7 +59,7 @@ And add the following to your appsettings.json and appsettings.Development.json:
 ```
 
 ### Other appsetting properties
-```json
+```javascript
 {
     "PathBase": "/my-api" // Prefix all your endpoints with this base path. Should only be used for development appsettings in combination with reverse proxy prefixes.
 }

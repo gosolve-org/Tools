@@ -1,7 +1,8 @@
 ﻿using System.Linq.Expressions;
-using GoSolve.Tools.Api.Database.Models;
+using GoSolve.Tools.Common.Database.Models;
+using GoSolve.Tools.Common.Database.Models.Interfaces;
 
-namespace GoSolve.Tools.Api.Database.Repositories;
+namespace GoSolve.Tools.Api.Database.Repositories.Interfaces;
 
 /// <summary>
 /// Interface for the default functionality of a database repository.

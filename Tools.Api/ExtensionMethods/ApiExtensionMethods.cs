@@ -1,5 +1,4 @@
-﻿using GoSolve.Tools.Api.Database.Models;
-using GoSolve.Tools.Api.Json;
+﻿using GoSolve.Tools.Api.Json;
 using GoSolve.Tools.Api.ProblemDetails;
 using Hellang.Middleware.ProblemDetails;
 using Microsoft.AspNetCore.Builder;

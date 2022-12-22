@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.ChangeTracking;
 
-namespace GoSolve.Tools.Api.Database.Models;
+namespace GoSolve.Tools.Common.Database.Models;
 
 /// <summary>
 /// The base DbContext class which injects functionality during saving, such as adding Timestamps.

@@ -16,7 +16,8 @@ public static class DatabaseExtensionMethods
     /// </summary>
     /// <typeparam name="TDbContext">The type of the DbContext.</typeparam>
     /// <param name="app"></param>
-    public static void MigrateDatabase<TDbContext>(this WebApplication app)
+    /// <returns></returns>
+    public static WebApplication MigrateDatabase<TDbContext>(this WebApplication app)
         where TDbContext : BaseDbContext<TDbContext>
     {
         using (var scope = app.Services.CreateScope())
@@ -25,5 +26,7 @@ public static class DatabaseExtensionMethods
             var db = services.GetRequiredService<TDbContext>();
             db.Database.Migrate();
         }
+
+        return app;
     }
 }

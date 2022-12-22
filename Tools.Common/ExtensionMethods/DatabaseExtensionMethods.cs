@@ -18,7 +18,8 @@ public static class DatabaseExtensionMethods
     /// <typeparam name="TDbContext">The type of the DbContext to register.</typeparam>
     /// <param name="services"></param>
     /// <param name="configuration"></param>
-    public static void AddDatabaseTools<TDbContext>(this IServiceCollection services, IConfiguration configuration)
+    /// <returns></returns>
+    public static IServiceCollection AddDatabaseTools<TDbContext>(this IServiceCollection services, IConfiguration configuration)
         where TDbContext : BaseDbContext<TDbContext>
     {
         services.AddDbContext<TDbContext>(opt =>
@@ -27,5 +28,7 @@ public static class DatabaseExtensionMethods
         });
 
         services.AddTransient<IUnitOfWork, UnitOfWork<TDbContext>>();
+
+        return services;
     }
 }

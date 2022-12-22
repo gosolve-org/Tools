@@ -1,5 +1,6 @@
 ﻿using GoSolve.Tools.Api.Json;
 using GoSolve.Tools.Api.ProblemDetails;
+using GoSolve.Tools.Common.ExtensionMethods;
 using Hellang.Middleware.ProblemDetails;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Mvc.Versioning;
@@ -13,14 +14,19 @@ namespace GoSolve.Tools.Api.ExtensionMethods;
 /// <summary>
 /// Api extension methods.
 /// </summary>
-public static class ApiExtensionMethods
+public static class PipelineExtensionMethods
 {
     /// <summary>
     /// Adds default api tools and configurations.
+    /// Also adds goSolve's common tools.
     /// </summary>
     /// <param name="services"></param>
-    public static void AddApiTools(this IServiceCollection services)
+    /// <param name="configuration"></param>
+    /// <returns></returns>
+    public static IServiceCollection AddApiTools(this IServiceCollection services, IConfiguration configuration)
     {
+        services.AddCommonTools(configuration);
+
         services.AddSwaggerGen();
         services.AddVersionedApiExplorer(options =>
         {
@@ -38,13 +44,16 @@ public static class ApiExtensionMethods
         services
             .AddControllers()
             .AddCustomJsonOptions();
+
+        return services;
     }
 
     /// <summary>
     /// Registers default api tools and configurations.
     /// </summary>
     /// <param name="app"></param>
-    public static void UseApiTools(this WebApplication app)
+    /// <returns></returns>
+    public static WebApplication UseApiTools(this WebApplication app)
     {
         var configuration = app.Configuration;
 
@@ -69,5 +78,7 @@ public static class ApiExtensionMethods
         {
             app.UseDeveloperExceptionPage();
         }
+
+        return app;
     }
 }

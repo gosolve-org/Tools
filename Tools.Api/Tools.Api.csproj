@@ -4,7 +4,7 @@
     <Nullable>disable</Nullable>
     <ImplicitUsings>true</ImplicitUsings>
     <PackageId>GoSolve.Tools.Api</PackageId>
-    <Version>0.0.9</Version>
+    <Version>0.0.10</Version>
     <Company>goSolve</Company>
     <Authors>goSolve IT</Authors>
     <PackageTags>tools</PackageTags>
@@ -24,6 +24,7 @@
         v0.0.7: Move database tools
         v0.0.8: Rename extension method UseDatabaseTools to MigrateDatabase
         v0.0.9: Add Serilog functionality
+        v0.0.10: Move JsonPatch logic to Tools.Common package
     </PackageReleaseNotes>
   </PropertyGroup>
   <ItemGroup>
@@ -55,7 +56,6 @@
     <PackageReference Include="Microsoft.AspNetCore.Mvc.Versioning.ApiExplorer" Version="5.0.0" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
     <PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="6.0.5" />
-    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="11.0.0" />
     <PackageReference Include="Microsoft.AspNetCore.JsonPatch" Version="6.0.8" />
   </ItemGroup>
   <ItemGroup>

@@ -4,7 +4,7 @@
     <Nullable>disable</Nullable>
     <ImplicitUsings>true</ImplicitUsings>
     <PackageId>GoSolve.Tools.Common</PackageId>
-    <Version>0.0.6</Version>
+    <Version>0.0.7</Version>
     <Company>goSolve</Company>
     <Authors>goSolve IT</Authors>
     <PackageTags>tools</PackageTags>
@@ -23,6 +23,7 @@
       v0.0.4: Add NotFoundException
       v0.0.5: Add database tools
       v0.0.6: Add Serilog functionality
+      v0.0.7: Add JsonPatch functionality
     </PackageReleaseNotes>
   </PropertyGroup>
   <ItemGroup>
@@ -54,6 +55,7 @@
     <None Remove="Logging\" />
     <None Remove="Serilog.Extensions.Hosting" />
     <None Remove="Serilog.Settings.Configuration" />
+    <None Remove="AutoMapper.Extensions.Microsoft.DependencyInjection" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Exceptions\" />
@@ -105,5 +107,6 @@
     <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="6.0.8" />
     <PackageReference Include="Serilog.Extensions.Hosting" Version="5.0.1" />
     <PackageReference Include="Serilog.Settings.Configuration" Version="3.4.0" />
+    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="12.0.0" />
   </ItemGroup>
 </Project>

@@ -5,8 +5,16 @@ using Serilog.Events;
 
 namespace GoSolve.Tools.Common.Logging;
 
+/// <summary>
+/// Factory for building Serilog configurations.
+/// </summary>
 public static class SerilogFactory
 {
+    /// <summary>
+    /// Creates a Serilog logger.
+    /// </summary>
+    /// <param name="configuration"></param>
+    /// <returns></returns>
     public static Logger CreateLogger(IConfiguration configuration)
     {
         var loggingMinLevel = GetCurrentLoggingMinimumLevel(configuration);

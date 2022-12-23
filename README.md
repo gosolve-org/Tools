@@ -6,7 +6,7 @@ The Tools.Api package includes the default configurations for the goSolve api's.
 - Error handling & ProblemDetails
 - Json configuration
 - Api versioning
-- JsonPatch mapping & validation functionality
+- JsonPatch validation functionality
 - Swagger documentation
 - Endpoint routing & controller mapping
 - Database migration
@@ -15,6 +15,7 @@ The Tools.Common package includes the default configuration for all generic goSo
 - Serilog logging
 - Database setup
 - Analyzers
+- JsonPatch mapping functionality
 
 To include these in an API, use the following in your Program.cs:
 ```csharp

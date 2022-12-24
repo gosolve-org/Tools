@@ -35,7 +35,7 @@ public abstract class GenericRepository<TEntity, TId, TDbContext> : IGenericRepo
     /// </summary>
     /// <param name="id"></param>
     /// <returns></returns>
-    public async Task<TEntity> GetById(TId id)
+    public virtual async Task<TEntity> GetById(TId id)
     {
         return await Context.Set<TEntity>().FindAsync(id);
     }
@@ -44,7 +44,7 @@ public abstract class GenericRepository<TEntity, TId, TDbContext> : IGenericRepo
     /// Gets all entities.
     /// </summary>
     /// <returns></returns>
-    public async Task<IEnumerable<TEntity>> GetAll()
+    public virtual async Task<IEnumerable<TEntity>> GetAll()
     {
         return await Context.Set<TEntity>().ToListAsync();
     }
@@ -54,7 +54,7 @@ public abstract class GenericRepository<TEntity, TId, TDbContext> : IGenericRepo
     /// </summary>
     /// <param name="predicate"></param>
     /// <returns></returns>
-    public async Task<IEnumerable<TEntity>> Find(Expression<Func<TEntity, bool>> predicate)
+    public virtual async Task<IEnumerable<TEntity>> Find(Expression<Func<TEntity, bool>> predicate)
     {
         return await Context.Set<TEntity>().Where(predicate).ToListAsync();
     }
@@ -64,7 +64,7 @@ public abstract class GenericRepository<TEntity, TId, TDbContext> : IGenericRepo
     /// NOTE: This does not save the entity to the database, a <see cref="IUnitOfWork" /> still needs to be completed.
     /// </summary>
     /// <param name="entity"></param>
-    public void Add(TEntity entity)
+    public virtual void Add(TEntity entity)
     {
         Context.Set<TEntity>().Add(entity);
     }
@@ -74,7 +74,7 @@ public abstract class GenericRepository<TEntity, TId, TDbContext> : IGenericRepo
     /// NOTE: This does not save the entity to the database, a <see cref="IUnitOfWork" /> still needs to be completed.
     /// </summary>
     /// <param name="entities"></param>
-    public void AddRange(IEnumerable<TEntity> entities)
+    public virtual void AddRange(IEnumerable<TEntity> entities)
     {
         Context.Set<TEntity>().AddRange(entities);
     }
@@ -84,7 +84,7 @@ public abstract class GenericRepository<TEntity, TId, TDbContext> : IGenericRepo
     /// NOTE: This does not save the deletion of this entity to the database, a <see cref="IUnitOfWork" /> still needs to be completed.
     /// </summary>
     /// <param name="entity"></param>
-    public void Remove(TEntity entity)
+    public virtual void Remove(TEntity entity)
     {
         Context.Set<TEntity>().Remove(entity);
     }
@@ -94,7 +94,7 @@ public abstract class GenericRepository<TEntity, TId, TDbContext> : IGenericRepo
     /// NOTE: This does not save the deletion of these entities to the database, a <see cref="IUnitOfWork" /> still needs to be completed.
     /// </summary>
     /// <param name="entities"></param>
-    public void RemoveRange(IEnumerable<TEntity> entities)
+    public virtual void RemoveRange(IEnumerable<TEntity> entities)
     {
         Context.Set<TEntity>().RemoveRange(entities);
     }

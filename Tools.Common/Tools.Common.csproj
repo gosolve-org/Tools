@@ -4,7 +4,7 @@
     <Nullable>disable</Nullable>
     <ImplicitUsings>true</ImplicitUsings>
     <PackageId>GoSolve.Tools.Common</PackageId>
-    <Version>0.0.7</Version>
+    <Version>0.0.8</Version>
     <Company>goSolve</Company>
     <Authors>goSolve IT</Authors>
     <PackageTags>tools</PackageTags>
@@ -24,6 +24,7 @@
       v0.0.5: Add database tools
       v0.0.6: Add Serilog functionality
       v0.0.7: Add JsonPatch functionality
+      v0.0.8: Make GenericRepository methods virtual
     </PackageReleaseNotes>
   </PropertyGroup>
   <ItemGroup>

@@ -16,7 +16,7 @@ public static class PatchExtensionMethods
     /// <typeparam name="TDestination">Destination type.</typeparam>
     /// <param name="source"></param>
     /// <param name="reverseMap">Whether reverseMap should be applied to all JsonPatch mappings. reverseMap will not be applied to the direct mapping of TSource -> TDestination.</param>
-    /// <returns>The result of CreateMap&lt;TSource, TDestination&gt;</returns>
+    /// <returns>The result of .CreateMap&lt;TSource, TDestination&gt;()</returns>
     public static IMappingExpression<TSource, TDestination> CreateJsonPatchMap<TSource, TDestination>(this Profile source, bool reverseMap = true)
         where TSource : class
         where TDestination : class

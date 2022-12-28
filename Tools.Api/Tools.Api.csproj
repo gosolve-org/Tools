@@ -4,7 +4,7 @@
     <Nullable>disable</Nullable>
     <ImplicitUsings>true</ImplicitUsings>
     <PackageId>GoSolve.Tools.Api</PackageId>
-    <Version>0.0.11</Version>
+    <Version>0.0.12</Version>
     <Company>goSolve</Company>
     <Authors>goSolve IT</Authors>
     <PackageTags>tools</PackageTags>
@@ -26,6 +26,7 @@
         v0.0.9: Add Serilog functionality
         v0.0.10: Move JsonPatch logic to Tools.Common package
         v0.0.11: Update Tools.Common version
+        v0.0.12: Update Tools.Common version
     </PackageReleaseNotes>
   </PropertyGroup>
   <ItemGroup>

@@ -2,14 +2,14 @@
 using GoSolve.Tools.Common.Database.Models;
 using GoSolve.Tools.Common.Database.Models.Interfaces;
 
-namespace GoSolve.Tools.Api.Database.Repositories.Interfaces;
+namespace GoSolve.Tools.Common.Database.Repositories.Interfaces;
 
 /// <summary>
 /// Interface for the read-only functionalities of a database repository.
 /// </summary>
 /// <typeparam name="TEntity">Type of the entity.</typeparam>
 /// <typeparam name="TId">Type of the id of the entity.</typeparam>
-public interface IReadOnlyRepository<TEntity, TId>
+public interface IReadOnlyRepository<TEntity, TId> : IBaseRepository<TEntity>
 {
     /// <summary>
     /// Gets an entity by its id.

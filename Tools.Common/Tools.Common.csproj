@@ -4,7 +4,7 @@
     <Nullable>disable</Nullable>
     <ImplicitUsings>true</ImplicitUsings>
     <PackageId>GoSolve.Tools.Common</PackageId>
-    <Version>0.0.9</Version>
+    <Version>0.0.10</Version>
     <Company>goSolve</Company>
     <Authors>goSolve IT</Authors>
     <PackageTags>tools</PackageTags>
@@ -26,6 +26,7 @@
       v0.0.7: Add JsonPatch functionality
       v0.0.8: Make GenericRepository methods virtual
       v0.0.9: Add ReadOnlyRepository
+      v0.0.10: Add IBaseRepository interface with method PrepareDefaultReadSource
     </PackageReleaseNotes>
   </PropertyGroup>
   <ItemGroup>

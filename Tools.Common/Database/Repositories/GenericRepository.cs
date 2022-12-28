@@ -13,6 +13,7 @@ namespace GoSolve.Tools.Common.Database.Repositories;
 /// <typeparam name="TId">Type of the id of the entity.</typeparam>
 /// <typeparam name="TDbContext">Type of the DbContext that is used for this entity.</typeparam>
 public abstract class GenericRepository<TEntity, TId, TDbContext> : IGenericRepository<TEntity, TId>
+    where TId : IEquatable<TId>
     where TEntity : BaseEntity<TId>
     where TDbContext : BaseDbContext<TDbContext>
 {
@@ -37,7 +38,7 @@ public abstract class GenericRepository<TEntity, TId, TDbContext> : IGenericRepo
     /// <returns></returns>
     public virtual async Task<TEntity> GetById(TId id)
     {
-        return await PrepareDefaultReadSource(Context.Set<TEntity>()).FindAsync(id);
+        return await PrepareDefaultReadSource(Context.Set<TEntity>()).SingleOrDefaultAsync(el => id.Equals(el.Id));
     }
 
     /// <summary>
@@ -103,11 +104,9 @@ public abstract class GenericRepository<TEntity, TId, TDbContext> : IGenericRepo
     /// Prepares the default entity source that will be used in the default read operations.
     /// Note: This will not have effect on overridden methods.
     /// </summary>
-    /// <typeparam name="TQueryable">Queryable type to prepare.</typeparam>
     /// <param name="source"></param>
     /// <returns></returns>
-    public virtual TQueryable PrepareDefaultReadSource<TQueryable>(TQueryable source)
-        where TQueryable : IQueryable<TEntity>
+    public virtual IQueryable<TEntity> PrepareDefaultReadSource(IQueryable<TEntity> source)
     {
         return source;
     }

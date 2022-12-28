@@ -1,4 +1,4 @@
-﻿using GoSolve.Tools.Api.Database.Repositories.Interfaces;
+﻿using GoSolve.Tools.Common.Database.Repositories.Interfaces;
 using GoSolve.Tools.Common.Database.Models;
 using GoSolve.Tools.Common.Database.Models.Interfaces;
 using Microsoft.EntityFrameworkCore;
@@ -37,7 +37,7 @@ public abstract class GenericRepository<TEntity, TId, TDbContext> : IGenericRepo
     /// <returns></returns>
     public virtual async Task<TEntity> GetById(TId id)
     {
-        return await Context.Set<TEntity>().FindAsync(id);
+        return await PrepareDefaultReadSource(Context.Set<TEntity>()).FindAsync(id);
     }
 
     /// <summary>
@@ -46,7 +46,7 @@ public abstract class GenericRepository<TEntity, TId, TDbContext> : IGenericRepo
     /// <returns></returns>
     public virtual async Task<IEnumerable<TEntity>> GetAll()
     {
-        return await Context.Set<TEntity>().ToListAsync();
+        return await PrepareDefaultReadSource(Context.Set<TEntity>()).ToListAsync();
     }
 
     /// <summary>
@@ -56,7 +56,7 @@ public abstract class GenericRepository<TEntity, TId, TDbContext> : IGenericRepo
     /// <returns></returns>
     public virtual async Task<IEnumerable<TEntity>> Find(Expression<Func<TEntity, bool>> predicate)
     {
-        return await Context.Set<TEntity>().Where(predicate).ToListAsync();
+        return await PrepareDefaultReadSource(Context.Set<TEntity>()).Where(predicate).ToListAsync();
     }
 
     /// <summary>
@@ -97,5 +97,18 @@ public abstract class GenericRepository<TEntity, TId, TDbContext> : IGenericRepo
     public virtual void RemoveRange(IEnumerable<TEntity> entities)
     {
         Context.Set<TEntity>().RemoveRange(entities);
+    }
+
+    /// <summary>
+    /// Prepares the default entity source that will be used in the default read operations.
+    /// Note: This will not have effect on overridden methods.
+    /// </summary>
+    /// <typeparam name="TQueryable">Queryable type to prepare.</typeparam>
+    /// <param name="source"></param>
+    /// <returns></returns>
+    public virtual TQueryable PrepareDefaultReadSource<TQueryable>(TQueryable source)
+        where TQueryable : IQueryable<TEntity>
+    {
+        return source;
     }
 }

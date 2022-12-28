@@ -8,6 +8,7 @@ namespace GoSolve.Tools.Common.Database.Models;
 /// </summary>
 /// <typeparam name="TId">Type of the id of the entity, ex: long or Guid.</typeparam>
 public abstract class BaseEntity<TId> : TimestampedEntity
+    where TId : IEquatable<TId>
 {
     /// <summary>
     /// The id of the entity.

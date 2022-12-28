@@ -12,9 +12,7 @@ public interface IBaseRepository<TEntity>
     /// Prepares the default entity source that will be used in the default read operations.
     /// Note: This will not have effect on overridden methods.
     /// </summary>
-    /// <typeparam name="TQueryable">Queryable type to prepare.</typeparam>
     /// <param name="source"></param>
     /// <returns></returns>
-    TQueryable PrepareDefaultReadSource<TQueryable>(TQueryable source)
-        where TQueryable : IQueryable<TEntity>;
+    IQueryable<TEntity> PrepareDefaultReadSource(IQueryable<TEntity> source);
 }

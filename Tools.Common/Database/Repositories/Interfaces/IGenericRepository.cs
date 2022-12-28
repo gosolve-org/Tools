@@ -10,6 +10,7 @@ namespace GoSolve.Tools.Common.Database.Repositories.Interfaces;
 /// <typeparam name="TEntity">Type of the entity.</typeparam>
 /// <typeparam name="TId">Type of the id of the entity.</typeparam>
 public interface IGenericRepository<TEntity, TId> : IBaseRepository<TEntity>
+    where TId : IEquatable<TId>
 {
     /// <summary>
     /// Gets an entity by its id.

@@ -4,7 +4,7 @@
     <Nullable>disable</Nullable>
     <ImplicitUsings>true</ImplicitUsings>
     <PackageId>GoSolve.Tools.Api</PackageId>
-    <Version>0.0.14</Version>
+    <Version>0.0.16</Version>
     <Company>goSolve</Company>
     <Authors>goSolve IT</Authors>
     <PackageTags>tools</PackageTags>
@@ -29,6 +29,8 @@
         v0.0.12: Update Tools.Common version
         v0.0.13: Update Tools.Common version
         v0.0.14: Update Tools.Common version
+        v0.0.15: Update Tools.Common version
+        v0.0.16: Add database seeding functionality
     </PackageReleaseNotes>
   </PropertyGroup>
   <ItemGroup>

@@ -9,11 +9,15 @@ The Tools.Api package includes the default configurations for the goSolve api's.
 - JsonPatch validation functionality
 - Swagger documentation
 - Endpoint routing & controller mapping
-- Database migration
+- Database tools
+  - Migrations
+  - Seeding test data
 
 The Tools.Common package includes the default configuration for all generic goSolve services. This includes:
 - Serilog logging
-- Database setup
+- Database
+  - Setup
+  - Seeding core application data
 - Analyzers
 - JsonPatch mapping functionality
 
@@ -29,6 +33,13 @@ builder.Services.AddDatabaseTools<MyDbContext>(builder.Configuration); // Option
 
 app.UseApiTools();
 app.MigrateDatabase<MyDbContext>(); // Optional: Migrates database on startup
+
+// Optional: Seeds test data (should not be run before database migration)
+if (EnvironmentHelper.IsDevelopment())
+{
+    app.SeedTestData<BookDbContext>(builder =>
+        builder.AddSeeder<BookTestDataSeeder>());
+}
 ```
 
 To use the database tools, the connection string to the postgresql database needs to be added:
@@ -68,7 +79,59 @@ And add the following to your appsettings.json and appsettings.Development.json:
 
 ### Json
 For all json serialization & deserialization logic, we will use the package Newtonsoft.Json.  
-Reason: The native .NET System.Text.Json does not support customization with projects using .AddControllers() instead of .AddMvc().  
+Reason: The native .NET System.Text.Json does not support customization with projects using .AddControllers() instead of .AddMvc().
+
+## Seed data to database
+### Core application seed data
+Core application seed data refers to the data that is essential for the application to function in any environment.
+For example, this could include data such as user roles, system configurations, and default values that are required for the application to operate properly.
+
+To add core seed data, use the `modelBuilder.SeedCoreData` extension method in the `OnModelCreating` method of your `DbContext`:
+```csharp
+public class BookDbContext : BaseDbContext<BookDbContext>
+{
+    ...
+
+    protected override void OnModelCreating(ModelBuilder modelBuilder)
+    {
+        ...
+
+        
+        modelBuilder.SeedCoreData(builder =>
+            builder.AddSeeder<BookGenreSeeder>());
+    }
+}
+```
+
+To create a core data seeder, inherit from the ICoreDataSeeder interface:
+```csharp
+public class BookGenreSeeder : ICoreDataSeeder
+{
+    public IEnumerable<TimestampedEntity> BuildData()
+    {
+        return new BookGenre[]
+        {
+            new BookGenre
+            {
+                Id = 1, // Ids should be defined for seed data
+                Name = "Fiction",
+                Description = "Narrative storytelling with imaginary characters and events."
+            },
+            ...
+        };
+    }
+}
+```
+
+:exclamation: **You need to create a new migration after adding / updating core seed data.**
+
+### Test seed data
+Test seed data refers to the data used in development environment for testing purposes.  
+
+To add test seed data, use the `app.SeedTestData` extension method on the WebApplication class as defined above.  
+To create a test data seeder, inherit from the ITestDataSeeder interface (works the same way as the ICoreDataSeeder).
+
+**Note: The test seed data is only added on creation of the database. If you want to have the latest test data, you need to remove (drop) the database and restart the application.**
 
 ## EditorConfig rules
 Our analyzer rules are set up in the .editorconfig file. If specific rules should be ignored, or vice versa, then this .editorconfig file should be updated. It will be distributed through the GoSolve.Tools.Common package to all of goSolve's back-end services.  

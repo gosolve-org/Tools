@@ -4,7 +4,7 @@
     <Nullable>disable</Nullable>
     <ImplicitUsings>true</ImplicitUsings>
     <PackageId>GoSolve.Tools.Common</PackageId>
-    <Version>0.0.13</Version>
+    <Version>0.0.14</Version>
     <Company>goSolve</Company>
     <Authors>goSolve IT</Authors>
     <PackageTags>tools</PackageTags>
@@ -30,6 +30,7 @@
       v0.0.11: Update IBaseRepository interface method PrepareDefaultReadSource
       v0.0.12: Add EnvironmentHelper to check if env is Development
       v0.0.13: Add database seeding functionality
+      v0.0.14: Remove automatic datetime generation from database seeding
     </PackageReleaseNotes>
   </PropertyGroup>
   <ItemGroup>

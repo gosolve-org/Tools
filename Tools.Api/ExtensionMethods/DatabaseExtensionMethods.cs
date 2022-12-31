@@ -85,7 +85,6 @@ public static class DatabaseExtensionMethods
                 Log.Logger.Information($"Seeding test data with ITestDataSeeder instance: {seeder.GetType().Name}.");
 
                 var data = seeder.BuildData();
-                DatabaseHelper.AddMissingTimestampedProperties(data);
 
                 context.AddRange(data);
                 context.SaveChanges();

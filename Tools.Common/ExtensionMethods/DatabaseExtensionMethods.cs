@@ -49,7 +49,6 @@ public static class DatabaseExtensionMethods
         foreach (var seeder in seeders)
         {
             var data = seeder.BuildData();
-            DatabaseHelper.AddMissingTimestampedProperties(data);
 
             if (data.Count() == 0)
             {

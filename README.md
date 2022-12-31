@@ -115,7 +115,9 @@ public class BookGenreSeeder : ICoreDataSeeder
             {
                 Id = 1, // Ids should be defined for seed data
                 Name = "Fiction",
-                Description = "Narrative storytelling with imaginary characters and events."
+                Description = "Narrative storytelling with imaginary characters and events.",
+                CreatedAt = new DateTime(2022, 01, 01, 0, 0, 0, DateTimeKind.Utc), // Optional: Will use default datetime (0001-01-01 00:00:00:00) if unset (generally OK for core seed data)
+                UpdatedAt = new DateTime(2022, 01, 01, 0, 0, 0, DateTimeKind.Utc), // Optional: Will use default datetime (0001-01-01 00:00:00:00) if unset (generally OK for core seed data)
             },
             ...
         };

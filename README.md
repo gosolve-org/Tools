@@ -64,7 +64,13 @@ And add the following to your appsettings.json and appsettings.Development.json:
         {
             "Name": "book",
             "BaseAddressUri": "<base address of the api>", // Example: "https://localhost:5001/" (trailing slash is required!)
-            "Accept": "application/json" // (Optional, default value: "application/json")
+            "Accept": "application/json" // (Optional, default value: "application/json"),
+            "CircuitBreaker": { // (Optional, contains displayed default values)
+                "FailureThreshold": 0.25, // The failure threshold at which the circuit will break (a number between 0 and 1; eg 0.5 represents breaking if 50% or more of actions result in a handled failure).
+                "SamplingDuration": 60.0, // The duration of the timeslice over which failure ratios are assessed, in seconds.
+                "MinimumThroughput": 10, // The minimum throughput: this many actions or more must pass through the circuit in the timeslice, for statistics to be considered significant and the circuit-breaker to come into action.
+                "DurationOfBreak": 30.0 // The duration the circuit will stay open before resetting, in seconds.
+            }
         }
     ]
 }

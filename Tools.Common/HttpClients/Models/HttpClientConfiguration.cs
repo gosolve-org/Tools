@@ -1,4 +1,4 @@
-﻿namespace GoSolve.Tools.Common.HttpClients;
+﻿namespace GoSolve.Tools.Common.HttpClients.Models;
 
 /// <summary>
 /// Configuration class for a registered HttpClient.
@@ -19,4 +19,17 @@ public class HttpClientConfiguration
     /// The content type the HttpClient accepts.
     /// </summary>
     public string Accept { get; set; } = "application/json";
+
+    /// <summary>
+    /// Circuit breaker configuration.
+    /// </summary>
+    public CircuitBreakerConfiguration CircuitBreaker { get; set; }
+
+    /// <summary>
+    /// Constructor.
+    /// </summary>
+    public HttpClientConfiguration()
+    {
+        CircuitBreaker = new ();
+    }
 }

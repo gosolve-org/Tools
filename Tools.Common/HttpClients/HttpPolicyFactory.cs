@@ -1,4 +1,5 @@
-﻿using Polly;
+﻿using GoSolve.Tools.Common.HttpClients.Models;
+using Polly;
 using Polly.Extensions.Http;
 using Serilog;
 
@@ -31,5 +32,41 @@ public static class HttpPolicyFactory
                 _logger.Information("Http action failed, retrying. {@ExceptionMessage} {@StatusCode} {@RequestUri} {@TimeSpan}",
                     result.Exception?.Message, result.Result?.StatusCode, result.Result?.RequestMessage?.RequestUri, timespan);
             });
+    }
+
+    /// <summary>
+    /// Creates a circuit breaker policy.
+    /// </summary>
+    /// <param name="configuration"></param>
+    /// <returns></returns>
+    public static IAsyncPolicy<HttpResponseMessage> CreateCircuitBreakerPolicy(CircuitBreakerConfiguration configuration)
+    {
+        return HttpPolicyExtensions
+            .HandleTransientHttpError()
+            .AdvancedCircuitBreakerAsync(
+                failureThreshold: configuration.FailureThreshold,
+                samplingDuration: TimeSpan.FromSeconds(configuration.SamplingDuration),
+                minimumThroughput: configuration.MinimumThroughput,
+                durationOfBreak: TimeSpan.FromSeconds(configuration.DurationOfBreak),
+                onBreak: async (exception, breakDelay) =>
+                {
+                    if (exception != null && exception.Exception != null)
+                    {
+                        Log.Logger.Error("Action failed. Circuit breaker activated. {@BreakDelay} {@ExceptionMessage}",
+                            breakDelay, exception.Exception);
+                    }
+
+                    if (exception != null && exception.Result != null)
+                    {
+                        var response = exception.Result;
+                        var responseMessage = await response.Content.ReadAsStringAsync();
+                        Log.Logger.Error("Action failed. Circuit breaker activated. {@BreakDelay} {@HttpResponseMessage}",
+                            breakDelay, new { response.StatusCode, response.Version, ResponseMessageContent = responseMessage });
+                    }
+                },
+                onReset: () =>
+                {
+                    Log.Logger.Information("Circuit breaker reset.");
+                });
     }
 }

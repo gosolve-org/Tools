@@ -1,5 +1,6 @@
 ﻿using GoSolve.Tools.Common.Enumerations;
 using GoSolve.Tools.Common.Exceptions;
+using GoSolve.Tools.Common.HttpClients.Models;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -44,7 +45,8 @@ public static class HttpClientExtensions
                 client.DefaultRequestHeaders.Add("User-Agent", GetCurrentApplicationName(configuration));
                 client.DefaultRequestVersion = new Version(2, 0);
             })
-            .AddPolicyHandler(HttpPolicyFactory.CreateRetryPolicy());
+            .AddPolicyHandler(HttpPolicyFactory.CreateRetryPolicy())
+            .AddPolicyHandler(HttpPolicyFactory.CreateCircuitBreakerPolicy(httpClientConfiguration.CircuitBreaker));
 
         return builder;
     }

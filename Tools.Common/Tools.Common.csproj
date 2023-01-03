@@ -4,7 +4,7 @@
     <Nullable>disable</Nullable>
     <ImplicitUsings>true</ImplicitUsings>
     <PackageId>GoSolve.Tools.Common</PackageId>
-    <Version>0.0.14</Version>
+    <Version>0.0.15</Version>
     <Company>goSolve</Company>
     <Authors>goSolve IT</Authors>
     <PackageTags>tools</PackageTags>
@@ -31,6 +31,7 @@
       v0.0.12: Add EnvironmentHelper to check if env is Development
       v0.0.13: Add database seeding functionality
       v0.0.14: Remove automatic datetime generation from database seeding
+      v0.0.15: Add circuit breaker http policy
     </PackageReleaseNotes>
   </PropertyGroup>
   <ItemGroup>
@@ -66,6 +67,7 @@
     <None Remove="Globals\" />
     <None Remove="Database\Seeding\" />
     <None Remove="Database\Seeding\Interfaces\" />
+    <None Remove="HttpClients\Models\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Exceptions\" />
@@ -80,6 +82,7 @@
     <Folder Include="Globals\" />
     <Folder Include="Database\Seeding\" />
     <Folder Include="Database\Seeding\Interfaces\" />
+    <Folder Include="HttpClients\Models\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="..\.editorconfig">
